@@ -7,6 +7,7 @@
 '''
 
 from flask import Blueprint
+from flask_login import login_user
 
 login_bp = Blueprint('login', __name__)
 
