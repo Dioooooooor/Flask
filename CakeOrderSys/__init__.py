@@ -21,4 +21,4 @@ def create_app(config_name=None):
 
 def register_blueprints(app):
     app.register_blueprint(index_bp)
-    app.register_blueprint(login_bp, subdomain='login')
+    app.register_blueprint(login_bp)
