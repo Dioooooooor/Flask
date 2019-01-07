@@ -1,0 +1,13 @@
+{% if commoditys %}
+    {% for commodity in commoditys %}
+    <div class="col-lg-2 mb-4">
+        <div class="card w-80" >
+            <img class="card-img-top" src="{{ url_for('static', filename='images/cake.jpg') }}">
+            <div class="card-body">
+                <a href="{{ url_for('home.home')}}"><h5 class="card-title">{{ commodity.name }}</h5></a>
+                <p class="card-text">{{ commodity.detail }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}

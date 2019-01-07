@@ -1,0 +1,91 @@
+{% macro render_nav_item(endpoint, text, badge='', use_li=False) %}
+    <li class="nav-item {% if request.endpoint and request.endpoint == endpoint %}active{% endif %}">
+    <a class="nav-link"
+       href="{{ url_for(endpoint, **kwargs) }}">
+       <span>{{ text }} </span>
+       {% if badge %}<span>{{ badge }}</span>{% endif %}
+    </a>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>April的烘培工坊 - {% block title %}{% endblock title %}</title>
+
+            <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+            <!-- Bootstrap core CSS -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/manager/bootstrap.min.css') }}" type="text/css">
+
+            <!-- Custom styles for this template -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/manager/sb-admin.css') }}" type="text/css">
+        {% endblock head %}
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+            <a class="navbar-brand mr-1" href="{{ url_for('manager.managerhome') }}">
+                <img src="{{ url_for('static', filename='images/logo.jpg') }}" width="40" class="d-inline-block align-top">
+                <small>April的烘培工坊</small>
+            </a>
+        
+        </nav>
+
+    <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="sidebar navbar-nav">
+                {{render_nav_item('manager.managerhome', '总览')}}
+                {{render_nav_item('home.home', '商品')}}
+            </ul>
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                    {% block content%}
+                    {% endblock content%}
+                </div>
+            </div>
+      
+            <div id="content-wrapper">
+                <div class="container-fluid">
+
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content-wrapper -->
+
+      
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                <span>Copyright © Your Website 2018</span>
+                </div>
+            </div>
+            </footer>
+      
+    </div>
+      
+
+        <!-- Bootstrap core JavaScript -->
+        {% block scripts %}
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/manager/bootstrap.bundle.min.js') }}"></script>
+        <script type="text/javascript" sec="{{ url_for('static', filename='js/manager/sb-admin.min.js') }}"></script>
+        {% endblock scripts %}
+    </body>
+</html>
+
+
+{% macro render_nav_item(endpoint, text, badge='', use_li=False) %}
+    {% if use_li %}<li class="nav-item">{% endif %}
+    <a class="{% if not use_li %}nav-item{% endif %} nav-link {% if request.endpoint and request.endpoint == endpoint %}active{% endif %}"
+       href="{{ url_for(endpoint, **kwargs) }}">
+       <span>{{ text }} </span>
+       {% if badge %}<span>{{ badge }}</span>{% endif %}
+    </a>
+    {% if use_li %}</li>{% endif %}
+{% endmacro %}

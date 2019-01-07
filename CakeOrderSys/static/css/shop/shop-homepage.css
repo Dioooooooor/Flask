@@ -4,17 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 
-body {
-  padding-top: 54px;
-}
-
-@media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
-}
-
-#full_container{
+.fullcontainer{
   width:100%;
   padding-right:0px;
   padding-left:0px;
@@ -24,4 +14,9 @@ body {
 
 #div_margin{
   margin-top: 2rem
+}
+
+.alert-full {
+  margin-bottom: 0rem;
+  border-radius: 0rem;
 }
