@@ -2,7 +2,7 @@
     <li class="nav-item {% if request.endpoint and request.endpoint == endpoint %}active{% endif %}">
     <a class="nav-link"
        href="{{ url_for(endpoint, **kwargs) }}">
-       <span>{{ text }} </span>
+       <span>{{ text }}</span>
        {% if badge %}<span>{{ badge }}</span>{% endif %}
     </a>
 {% endmacro %}

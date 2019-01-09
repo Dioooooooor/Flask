@@ -1,0 +1,80 @@
+{% from 'bootstrap/form.html' import render_form %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>April的烘培工坊 - {% block title %}{% endblock title %}</title>
+
+            <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+            <!-- Bootstrap core CSS -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/shop/bootstrap.min.css') }}" type="text/css">
+
+            <!-- Custom styles for this template -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/shop/shop-homepage.css') }}" type="text/css">
+        {% endblock head %}
+    </head>
+    <body>
+
+        <div class="container-fluid fullcontainer">
+            {% for message in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ message[0] }} alert-full" role="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message[1] }}
+            </div>
+            <script>
+                window.setTimeout(function(){
+                    $('[data-dismiss="alert"]').alert('close');
+                    },3000);
+            </script>
+            {% endfor %}
+            <!-- 内容 -->
+            {% block content %}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <!--填写-->
+                        {{ render_form(form, extra_classes='col-6') }}
+                    </div>
+                    <div class="col-6">
+                        <!--展示-->
+                        <div class="col-6 mb-4">
+                            <div class="card w-80" >
+                                <img class="card-img-top"  src="https://via.placeholder.com/700x400?text=April">
+                                <div class="card-body">
+                                    <a href="{{ url_for('home.home')}}"><h5 class="card-title">产品名</h5></a>
+                                    <p class="card-text">产品描述</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endblock content %}
+
+            <!-- 页脚 -->
+            {% block footer %}
+            <footer class="py-5 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">Copyright &copy; 大四月烘培工坊 2017 - 2018</p>
+                </div>
+                <!-- /.container -->
+            </footer>
+            {% endblock footer %}
+        </div>
+
+
+        <!-- Bootstrap core JavaScript -->
+        {% block scripts %}
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/shop/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/manager/showcommodity.js') }}"></script>
+        {% endblock scripts %}
+    </body>
+</html>

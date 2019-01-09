@@ -8,6 +8,7 @@
 
 from flask import Blueprint, request, render_template, redirect, url_for
 from flask_login import login_user, logout_user, login_required, current_user
+from CakeOrderSys.forms import CommodityForm
 
 manager_bp = Blueprint("manager", __name__)
 
@@ -16,3 +17,8 @@ def managerhome():
     if current_user.is_authenticated:
         return render_template('manager/overview.html')
     return redirect(url_for('login.login'))
+
+@manager_bp.route('/create')
+def create():
+    form = CommodityForm()
+    return render_template('manager/create.html', form=form)
