@@ -53,8 +53,10 @@ class DevelopementConfig(BaseConfig):
     DEBUG = False
     SECRET_KEY = "caochen520"
     PREFERRED_URL_SCHEME = 'https',
-    SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
-    print(SQLALCHEMY_DATABASE_URI)
+    #SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:caochen520@127.0.0.1:3306/CakeOrderSys"
+    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
     
 config = {
     'development': DevelopementConfig,

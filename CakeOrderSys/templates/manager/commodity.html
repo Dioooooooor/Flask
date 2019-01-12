@@ -1,5 +1,11 @@
 {% extends 'manager/managerbase.html' %}
 
 {% block content %}
-
+{% if commoditys %}
+<div class="row">
+{% include 'manager/_commodity.html' %}
+</div>
+{% else %}
+<h1>暂无商品</h1>
+{% endif %}
 {% endblock content %}

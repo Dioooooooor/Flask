@@ -15,6 +15,7 @@ class Commodity(db.Model):
     name = db.Column(db.String(30))
     price = db.Column(db.Float)
     detail = db.Column(db.Text)
+    primaryicon = db.Column(db.Text)
 
 class Admin(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)

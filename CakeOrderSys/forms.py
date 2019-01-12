@@ -19,9 +19,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField('登陆')
 
 class CommodityForm(FlaskForm):
-    upload_set = ".jpg, .jpeg, .png, .gif"
-    primaryIcon = FileField("上传首页展示图", validators=[FileRequired(), FileAllowed(upload_set)])
+    #upload_set = ".jpg, .jpeg, .png, .gif"
+    primaryIcon = FileField("上传首页展示图", validators=[FileRequired()])
     name = StringField('产品名', validators=[DataRequired(), Length(1, 20)])
-    detail = TextAreaField('详细描述', validators=[DataRequired()])
     price = StringField('价格', validators=[DataRequired()])
+    detail = TextAreaField('详细描述', validators=[DataRequired()])
     submit = SubmitField('确认')

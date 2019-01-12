@@ -15,6 +15,8 @@ bootstrap-flask = "*"
 flask-sqlalchemy = "*"
 pylint-flask = "*"
 flask-wtf = "*"
+mysql = "*"
+pymysql = "*"
 
 [requires]
 python_version = "3.7"

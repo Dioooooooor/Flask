@@ -22,6 +22,9 @@
 
             <!-- Custom styles for this template -->
             <link rel="stylesheet" href="{{ url_for('static', filename='css/manager/sb-admin.css') }}" type="text/css">
+
+            <!-- my styles for this template -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}" type="text/css">
         {% endblock head %}
     </head>
     <body id="page-top">
@@ -46,13 +49,6 @@
                     {% block content%}
                     {% endblock content%}
                 </div>
-            </div>
-      
-            <div id="content-wrapper">
-                <div class="container-fluid">
-
-                </div>
-                <!-- /.container-fluid -->
             </div>
             <!-- /.content-wrapper -->
 

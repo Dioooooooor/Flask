@@ -15,6 +15,9 @@
 
             <!-- Custom styles for this template -->
             <link rel="stylesheet" href="{{ url_for('static', filename='css/shop/shop-homepage.css') }}" type="text/css">
+
+            <!-- my styles for this template -->
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}" type="text/css">
         {% endblock head %}
     </head>
     <body>
@@ -42,11 +45,12 @@
                     </div>
                     <div class="col-6">
                         <!--展示-->
-                        <div class="col-6 mb-4">
+                        <div class="col-8 mb-4">
                             <div class="card w-80" >
                                 <img class="card-img-top"  src="https://via.placeholder.com/700x400?text=April">
                                 <div class="card-body">
-                                    <a href="{{ url_for('home.home')}}"><h5 class="card-title">产品名</h5></a>
+                                    <a href="{{ url_for('home.home')}}"><h4 class="card-title">产品名</h4></a>
+                                    <h5 class="card-price">￥****</h5>
                                     <p class="card-text">产品描述</p>
                                 </div>
                             </div>

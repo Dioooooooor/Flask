@@ -24,6 +24,9 @@ def create_app(config_name=None):
     app = Flask('CakeOrderSys')
     app.config.from_object(config[config_name])
 
+    app.config['UPLOAD_PATH'] = os.path.join(app.root_path, 'uploads')
+    app.config['PRIMARYICON_UPLOAD_PATH'] = os.path.join(app.root_path, 'uploads')
+
     register_extensions(app)
     register_blueprints(app)
     register_commands(app)
@@ -57,7 +60,7 @@ def register_commands(app):
     @app.cli.command()
     @click.option('--username', prompt=True)
     @click.password_option()
-    def initadmin(username, password):
+    def addadmin(username, password):
         """添加管理者账号"""
         admin = Admin.query.filter(Admin.username==username).first()
         if admin is not None:

@@ -1,0 +1,38 @@
+.card-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+.fullcontainer{
+width:100%;
+padding-right:0px;
+padding-left:0px;
+margin-right:auto;
+margin-left:auto
+}
+
+.card{
+  border: 1px solid rgba(0, 0, 0, .5);
+  margin-bottom: 2rem;
+}
+
+#div_margin{
+margin-top: 2rem
+}
+
+.alert-full {
+margin-bottom: 0rem;
+border-radius: 0rem;
+}
+
+.no-padding {
+  padding: 0rem
+}
+
+@media(max-width:768px){
+  .sidebar{
+    display: none;
+  }
+}

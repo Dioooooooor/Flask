@@ -7,9 +7,11 @@
 '''
 
 from flask import Blueprint, request, render_template
+from CakeOrderSys.models import Commodity
 
 home_bp = Blueprint("home", __name__)
 
 @home_bp.route("/")
 def home():
-    return render_template('home/home.html')
+    commoditys = Commodity.query.all()
+    return render_template('home/home.html',  commoditys=commoditys)
