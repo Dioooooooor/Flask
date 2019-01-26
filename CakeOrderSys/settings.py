@@ -12,15 +12,15 @@ else:
     prefix = 'sqlite:////'
 
 class BaseConfig():
-    ENV=None,
-    DEBUG=False,
-    TESTING=False,
-    PROPAGATE_EXCEPTIONS=None,
-    PRESERVE_CONTEXT_ON_EXCEPTION=None,
-    SECRET_KEY=None,
+    ENV=None
+    DEBUG=False
+    TESTING=False
+    PROPAGATE_EXCEPTIONS=None
+    PRESERVE_CONTEXT_ON_EXCEPTION=None
+    SECRET_KEY=None
     # PERMANENT_SESSION_LIFETIME=timedelta(days=31),
     # USE_X_SENDFILE=False,
-    # SERVER_NAME="www.caochen.com",
+    SERVER_NAME='caochen.com:5000'
     # APPLICATION_ROOT='/',
     # SESSION_COOKIE_NAME='session',
     # SESSION_COOKIE_DOMAIN=None,
@@ -52,7 +52,7 @@ class ProductionConfig(BaseConfig):
 class DevelopementConfig(BaseConfig):
     DEBUG = False
     SECRET_KEY = "caochen520"
-    PREFERRED_URL_SCHEME = 'https',
+    PREFERRED_URL_SCHEME = 'https'
     #SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.db')
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:caochen520@127.0.0.1:3306/CakeOrderSys"
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True

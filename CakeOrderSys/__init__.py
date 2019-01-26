@@ -15,6 +15,7 @@ from CakeOrderSys.extensions import bootstrap, db, login_manager
 from CakeOrderSys.blueprints.home import home_bp
 from CakeOrderSys.blueprints.login import login_bp
 from CakeOrderSys.blueprints.manager import manager_bp
+from CakeOrderSys.apis.v1 import api_v1
 from CakeOrderSys.models import Admin, Commodity
 from CakeOrderSys.settings import config
 
@@ -43,6 +44,8 @@ def register_blueprints(app):
     app.register_blueprint(home_bp)
     app.register_blueprint(login_bp)
     app.register_blueprint(manager_bp)
+    app.register_blueprint(api_v1, url_prefix='/api/v1')
+    app.register_blueprint(api_v1, subdomain='api', url_prefix='/v1')
 
 
 def register_commands(app):
